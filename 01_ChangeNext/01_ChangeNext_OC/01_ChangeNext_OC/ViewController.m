@@ -37,11 +37,6 @@
     [self.view addSubview:self.imageCollectionView];
     [self.view addSubview:self.titleCollectionView];
     [self.view addSubview:self.changeBtn];
-
-    [self.imageCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"imageIcon"];
-
-    [self.imageCollectionView reloadData];
-    [self.titleCollectionView reloadData];
 }
 
 -(UICollectionViewFlowLayout *)getFlowLayout:(CGFloat)itemH
@@ -67,7 +62,7 @@
         _imageCollectionView.backgroundColor = [UIColor whiteColor];
         _imageCollectionView.bounces = NO;
         _imageCollectionView.delegate = self;
-        _imageCollectionView.delegate = self;
+        _imageCollectionView.dataSource = self;
         [_imageCollectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"imageIcon"];
         _imageCollectionView.backgroundColor = [UIColor cyanColor];
     }
@@ -115,11 +110,16 @@
 
 }
 
-
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if ([collectionView isKindOfClass:[self.imageCollectionView class]]) {
+    if (collectionView == self.imageCollectionView) {
+
+     //if ([collectionView isKindOfClass:[self.imageCollectionView class]]) {
         return self.imgs.count;
     }else{
         return self.titles.count;
@@ -128,7 +128,8 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([collectionView isKindOfClass:[self.imageCollectionView class]]) {
+    if (collectionView == self.imageCollectionView) {
+//    if ([collectionView isKindOfClass:[self.imageCollectionView class]]) {
         ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageIcon" forIndexPath:indexPath];
         cell.url = self.imgs[indexPath.row];
         return cell;
@@ -154,6 +155,7 @@
                            @"https://cdn.ruguoapp.com/o_1a94vu844jab1mf516gm1euj1lrr6.jpeg?imageView2/0/w/120/h/120/q/30/interlace/1",
 
                            @"https://cdn.ruguoapp.com/o_1a94vv8sg1nejjfjbbg10fv1q3v5t.jpeg?imageView2/0/w/120/h/120/q/30/interlace/1",
+
                            @"https://cdn.ruguoapp.com/FgEUzMvwk8QiCWLuy2sHx-DKKHkS.jpg?imageView2/0/w/120/h/120/q/30/interlace/1",
                            
                            @"https://cdn.ruguoapp.com/o_1aa6bm0ku3m07rd1eai1f2e3h0o.jpg?imageView2/0/w/120/h/120/q/30/interlace/1",

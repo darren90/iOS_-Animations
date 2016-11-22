@@ -26,6 +26,8 @@
         UIImageView *imageView = [[UIImageView alloc]init];
         self.imageView = imageView;
         [self addSubview:imageView];
+        imageView.layer.cornerRadius = 10;
+        imageView.clipsToBounds = YES;
     }
     return self;
 }
