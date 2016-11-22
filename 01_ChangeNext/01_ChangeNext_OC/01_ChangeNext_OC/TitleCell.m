@@ -28,6 +28,8 @@
         titleL.font = [UIFont systemFontOfSize:12];
         self.titleL = titleL;
         titleL.numberOfLines = 2;
+        titleL.textAlignment = NSTextAlignmentLeft;
+        [titleL sizeToFit];
         [self addSubview:titleL];
     }
     return self;

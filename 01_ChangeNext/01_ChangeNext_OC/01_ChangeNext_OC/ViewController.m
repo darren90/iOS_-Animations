@@ -33,7 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-
     [self.view addSubview:self.imageCollectionView];
     [self.view addSubview:self.titleCollectionView];
     [self.view addSubview:self.changeBtn];
@@ -59,7 +58,7 @@
         _imageCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(margin, 100, self.view.frame.size.width - 2*margin, 80) collectionViewLayout:[self getFlowLayout:80]];
         _imageCollectionView.scrollEnabled = NO;
         _imageCollectionView.showsVerticalScrollIndicator = NO;
-        _imageCollectionView.backgroundColor = [UIColor whiteColor];
+//        _imageCollectionView.backgroundColor = [UIColor whiteColor];
         _imageCollectionView.bounces = NO;
         _imageCollectionView.delegate = self;
         _imageCollectionView.dataSource = self;
@@ -73,7 +72,7 @@
 -(UICollectionView *)titleCollectionView
 {
     if (!_titleCollectionView) {
-        _titleCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(margin, CGRectGetMaxY(self.imageCollectionView.frame), self.view.frame.size.width-2*margin, 30) collectionViewLayout:[self getFlowLayout:30]];
+        _titleCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(margin, CGRectGetMaxY(self.imageCollectionView.frame)+10, self.view.frame.size.width-2*margin, 30) collectionViewLayout:[self getFlowLayout:36]];
         _titleCollectionView.scrollEnabled = NO;
         _titleCollectionView.showsVerticalScrollIndicator = NO;
         _titleCollectionView.backgroundColor = [UIColor whiteColor];
@@ -81,7 +80,7 @@
         _titleCollectionView.delegate = self;
         _titleCollectionView.dataSource = self;
         [_titleCollectionView registerClass:[TitleCell class] forCellWithReuseIdentifier:@"title"];
-        _titleCollectionView.backgroundColor = [UIColor grayColor];
+//        _titleCollectionView.backgroundColor = [UIColor grayColor];
     }
     return _titleCollectionView;
 }
@@ -90,7 +89,7 @@
 {
     if (!_changeBtn) {
         _changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _changeBtn.frame = CGRectMake(50, CGRectGetMaxY(self.titleCollectionView.frame), self.view.frame.size.width-2*50, 30);
+        _changeBtn.frame = CGRectMake(50, CGRectGetMaxY(self.titleCollectionView.frame)+10, self.view.frame.size.width-2*50, 30);
         _changeBtn.layer.borderWidth = 0.5;
         _changeBtn.layer.borderColor = [UIColor darkGrayColor].CGColor;
         _changeBtn.backgroundColor = [UIColor whiteColor];
@@ -99,6 +98,7 @@
         [_changeBtn setTitle:@"换一换" forState:UIControlStateNormal];
         _changeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [_changeBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [_changeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [_changeBtn addTarget:self action:@selector(chanageNext) forControlEvents:UIControlEventTouchUpInside];
     }
     return _changeBtn;
@@ -110,16 +110,9 @@
 
 }
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (collectionView == self.imageCollectionView) {
-
-     //if ([collectionView isKindOfClass:[self.imageCollectionView class]]) {
         return self.imgs.count;
     }else{
         return self.titles.count;
@@ -129,16 +122,19 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView == self.imageCollectionView) {
-//    if ([collectionView isKindOfClass:[self.imageCollectionView class]]) {
         ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageIcon" forIndexPath:indexPath];
         cell.url = self.imgs[indexPath.row];
         return cell;
     }else{
         TitleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
         cell.title = self.titles[indexPath.row];
-        cell.backgroundColor = [UIColor brownColor];
         return cell;
     }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 -(NSArray *)imgs
