@@ -110,6 +110,8 @@
 
 }
 
+
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (collectionView == self.imageCollectionView) {
@@ -134,7 +136,10 @@
 
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+    });
 }
 
 -(NSArray *)imgs
@@ -158,7 +163,6 @@
                            
                            @"https://cdn.ruguoapp.com/o_1a94vqmsf134u19h11lablfeenh9b.jpeg?imageView2/0/w/120/h/120/q/30/interlace/1"
                            ];
-
     }
     return _imgs;
 }
