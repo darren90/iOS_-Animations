@@ -13,10 +13,10 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     let magin = 20.0
     let KimageH = 80.0
     let KtitleH = 36.0
-    let Krow = 3
+    let Krow = 3.0
     var imgs:[String] = []
     var titles:[String] = []
-    var panCount = 0
+    var panCount = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +42,52 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
 
     func changeItem () {
+        imageScroll(offsetY: KimageH, isAnimation: true)
+        titleScroll(offsetY: KtitleH, isAnimation: true)
 
-
-        panCount = panCount + 1
+        panCount = panCount + 1.0
     }
 
     func imageScroll(offsetY:Double ,isAnimation:Bool) {
-        let imgY = (imgs.count / Krow) * KimageH - KimageH
+        let imgY = (Double(imgs.count) / Krow) * KimageH - KimageH
 
-        let imgRect = CGRect(x: 0, y: imgY - panCount * offsetY, width: imageCollectionView.frame.width, height: imageCollectionView.frame.height)
+        let imgRect = CGRect(x: 0.0, y: imgY - panCount * offsetY, width: Double(imageCollectionView.frame.width), height: Double(imageCollectionView.frame.height))
+
+        print("--scrollCount:\(panCount),imgs:\(imgs.count),---rect:\(imgRect)")
 
 
+        if panCount == 0.0 {
+            imageCollectionView.scrollRectToVisible(imgRect, animated: false)
+        }else{
+            imageCollectionView.scrollRectToVisible(imgRect, animated: isAnimation)
+        }
+    }
+
+    func titleScroll(offsetY:Double , isAnimation:Bool) {
+        let titleY = (Double(titles.count) / Krow) * KtitleH - KtitleH
+
+        let titleRect = CGRect(x: 0.0, y: titleY - panCount * offsetY, width: Double(titleCollectionView.frame.width), height: Double(titleCollectionView.frame.height))
+
+        if titleRect.origin.y < 0 {
+            panCount = 0.0
+
+            return
+        }
+
+        if panCount == 0.0 {
+            titleCollectionView.scrollRectToVisible(titleRect, animated: false)
+        }else{
+            titleCollectionView.scrollRectToVisible(titleRect, animated: isAnimation)
+        }
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == imageCollectionView {
+            imageScroll(offsetY: 0, isAnimation: false)
+        }else if collectionView == titleCollectionView && indexPath.item == 0{
+            titleScroll(offsetY: 0, isAnimation: false)
+        }
     }
 
 
