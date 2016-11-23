@@ -48,6 +48,7 @@
     _title = title;
 
     self.titleL.text = title;
+    [self.titleL sizeToFit];
 }
 
 
