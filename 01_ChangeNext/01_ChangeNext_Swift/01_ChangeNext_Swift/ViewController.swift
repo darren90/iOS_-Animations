@@ -22,6 +22,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        self.automaticallyAdjustsScrollViewInsets = false
 
         view.addSubview(imageCollectionView)
         view.addSubview(titleCollectionView)
@@ -53,7 +54,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
 
         let imgRect = CGRect(x: 0.0, y: imgY - panCount * offsetY, width: Double(imageCollectionView.frame.width), height: Double(imageCollectionView.frame.height))
 
-        print("--scrollCount:\(panCount),imgs:\(imgs.count),---rect:\(imgRect)")
+        print("--scrollCount:\(panCount),imgs:\(imgs.count),---rect:\(imgY - panCount * offsetY)")
 
 
         if panCount == 0.0 {
@@ -83,7 +84,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
 
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if collectionView == imageCollectionView {
+        if collectionView == imageCollectionView && indexPath.item == 0 {
             imageScroll(offsetY: 0, isAnimation: false)
         }else if collectionView == titleCollectionView && indexPath.item == 0{
             titleScroll(offsetY: 0, isAnimation: false)
