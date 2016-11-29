@@ -10,7 +10,8 @@ import UIKit
 
 class DotView: UIView {
     
-    let radius:CGFloat = 10
+    let radius:CGFloat = 3
+    let margin:CGFloat = 20
     
     var progress:Int = 0 {
         didSet{
@@ -41,7 +42,7 @@ class DotView: UIView {
         
         //
         let path1 = UIBezierPath()
-        let point1 = CGPoint(x: point2.x - 10, y: point2.y)
+        let point1 = CGPoint(x: point2.x - margin, y: point2.y)
         path1.addArc(withCenter: point1, radius: radius, startAngle: 0.0, endAngle: 180.0, clockwise: true)
 //        if progress % 3 == 0 {
 //             UIColor.white.setFill()
@@ -59,7 +60,7 @@ class DotView: UIView {
         
         // point 3
         let path3 = UIBezierPath()
-        let point3 = CGPoint(x: point2.x + 10, y: point2.y)
+        let point3 = CGPoint(x: point2.x + margin, y: point2.y)
         path3.addArc(withCenter: point3, radius: 20, startAngle: 0.0, endAngle: 180.0, clockwise: true)
         UIColor.brown.setFill()
         path3.fill()
