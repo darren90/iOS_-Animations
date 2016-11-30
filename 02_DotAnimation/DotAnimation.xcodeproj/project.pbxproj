@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89837CD01DEE683A009932DA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89837CCF1DEE683A009932DA /* TestViewController.swift */; };
+		89837CD21DEE6B60009932DA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89837CD11DEE6B60009932DA /* ErrorView.swift */; };
+		89837CD41DEE6B6F009932DA /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89837CD31DEE6B6F009932DA /* ErrorView.xib */; };
 		FEA4EB091DEDDE7C0077DDA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB081DEDDE7C0077DDA1 /* AppDelegate.swift */; };
-		FEA4EB0B1DEDDE7C0077DDA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB0A1DEDDE7C0077DDA1 /* ViewController.swift */; };
+		FEA4EB0B1DEDDE7C0077DDA1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB0A1DEDDE7C0077DDA1 /* BaseViewController.swift */; };
 		FEA4EB0E1DEDDE7C0077DDA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA4EB0C1DEDDE7C0077DDA1 /* Main.storyboard */; };
 		FEA4EB101DEDDE7C0077DDA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEA4EB0F1DEDDE7C0077DDA1 /* Assets.xcassets */; };
 		FEA4EB131DEDDE7C0077DDA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEA4EB111DEDDE7C0077DDA1 /* LaunchScreen.storyboard */; };
 		FEA4EB1E1DEDDE7C0077DDA1 /* DotAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB1D1DEDDE7C0077DDA1 /* DotAnimationTests.swift */; };
 		FEA4EB291DEDDE7C0077DDA1 /* DotAnimationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB281DEDDE7C0077DDA1 /* DotAnimationUITests.swift */; };
-		FEA4EB371DEDDF370077DDA1 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB361DEDDF370077DDA1 /* DotView.swift */; };
+		FEA4EB371DEDDF370077DDA1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA4EB361DEDDF370077DDA1 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		89837CCF1DEE683A009932DA /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		89837CD11DEE6B60009932DA /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		89837CD31DEE6B6F009932DA /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		FEA4EB051DEDDE7C0077DDA1 /* DotAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEA4EB081DEDDE7C0077DDA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FEA4EB0A1DEDDE7C0077DDA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FEA4EB0A1DEDDE7C0077DDA1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FEA4EB0D1DEDDE7C0077DDA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEA4EB0F1DEDDE7C0077DDA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEA4EB121DEDDE7C0077DDA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +54,7 @@
 		FEA4EB241DEDDE7C0077DDA1 /* DotAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DotAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEA4EB281DEDDE7C0077DDA1 /* DotAnimationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotAnimationUITests.swift; sourceTree = "<group>"; };
 		FEA4EB2A1DEDDE7C0077DDA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FEA4EB361DEDDF370077DDA1 /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		FEA4EB361DEDDF370077DDA1 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				FEA4EB081DEDDE7C0077DDA1 /* AppDelegate.swift */,
-				FEA4EB0A1DEDDE7C0077DDA1 /* ViewController.swift */,
-				FEA4EB361DEDDF370077DDA1 /* DotView.swift */,
+				FEA4EB0A1DEDDE7C0077DDA1 /* BaseViewController.swift */,
+				89837CCF1DEE683A009932DA /* TestViewController.swift */,
+				FEA4EB361DEDDF370077DDA1 /* LoadingView.swift */,
+				89837CD11DEE6B60009932DA /* ErrorView.swift */,
+				89837CD31DEE6B6F009932DA /* ErrorView.xib */,
 				FEA4EB0C1DEDDE7C0077DDA1 /* Main.storyboard */,
 				FEA4EB0F1DEDDE7C0077DDA1 /* Assets.xcassets */,
 				FEA4EB111DEDDE7C0077DDA1 /* LaunchScreen.storyboard */,
@@ -238,6 +247,7 @@
 				FEA4EB131DEDDE7C0077DDA1 /* LaunchScreen.storyboard in Resources */,
 				FEA4EB101DEDDE7C0077DDA1 /* Assets.xcassets in Resources */,
 				FEA4EB0E1DEDDE7C0077DDA1 /* Main.storyboard in Resources */,
+				89837CD41DEE6B6F009932DA /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEA4EB0B1DEDDE7C0077DDA1 /* ViewController.swift in Sources */,
+				89837CD21DEE6B60009932DA /* ErrorView.swift in Sources */,
+				FEA4EB0B1DEDDE7C0077DDA1 /* BaseViewController.swift in Sources */,
 				FEA4EB091DEDDE7C0077DDA1 /* AppDelegate.swift in Sources */,
-				FEA4EB371DEDDF370077DDA1 /* DotView.swift in Sources */,
+				89837CD01DEE683A009932DA /* TestViewController.swift in Sources */,
+				FEA4EB371DEDDF370077DDA1 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +521,7 @@
 				FEA4EB2F1DEDDE7C0077DDA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEA4EB301DEDDE7C0077DDA1 /* Build configuration list for PBXNativeTarget "DotAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +530,7 @@
 				FEA4EB321DEDDE7C0077DDA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEA4EB331DEDDE7C0077DDA1 /* Build configuration list for PBXNativeTarget "DotAnimationUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +539,7 @@
 				FEA4EB351DEDDE7C0077DDA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
