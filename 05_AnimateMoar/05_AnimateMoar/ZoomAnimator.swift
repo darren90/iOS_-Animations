@@ -11,6 +11,9 @@ import UIKit
 class ZoomAnimator: NSObject {
     // MARK:-- 定义一个属性，方便我们知道modar出来的界面是正在出现，还是正在消失
     var isPresented:Bool = false
+    
+    var startFrame:CGRect?
+    var transView:UIView?
 }
 
 
@@ -41,68 +44,91 @@ extension ZoomAnimator : UIViewControllerAnimatedTransitioning{
     
     
     func animateForPresentedView(using transitionContext: UIViewControllerContextTransitioning){
-        //1:取出弹出的view
-        let prensentedView = transitionContext.view(forKey: .to)!
-
-        //2.将prensentedView添加到containView中
-        transitionContext.containerView.addSubview(prensentedView)
-        //3,执行动画
-        prensentedView.alpha = 0.0
-
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {() -> Void in
-            prensentedView.alpha = 1.0
-//            imageView.frame = presentedDelegate.endRect(indexPath: indexPath)
-        }) {(_) -> Void in
         
-            transitionContext.completeTransition(true)
+        guard let transView = transView ,let startFrame = startFrame else{
+            return
         }
         
-//        guard let presentedDelegate = presentedDelegate,let indexPath = indexPath else{
-//            return
-//        }
-//        
-
-//        ///获取执行动画的imageView
-//        let startRect = presentedDelegate.startRect(indexPath: indexPath)
-//        
-//        let imageView = presentedDelegate.imageView(indexPath: indexPath)
-//        imageView.frame = startRect
-//        transitionContext.containerView.addSubview(imageView)
-//        
-
+        //1:取出弹出的view
+        let prensentedView = transitionContext.view(forKey: .to)!
+        
+        //2.将prensentedView添加到containView中
+        transitionContext.containerView.addSubview(prensentedView)
+        
+        ///获取执行动画的imageView
+        
+        transView.frame = startFrame
+        transitionContext.containerView.addSubview(transView)
+        
+        let x = (UIScreen.main.bounds.width - startFrame.width) * 0.5
+        let endFrame = CGRect(x: x, y: 64, width: startFrame.width, height: startFrame.height)
+        
+        //3,执行动画
+        prensentedView.alpha = 0.0
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {() -> Void in
+            transView.frame = endFrame
+//            transitionContext.containerView.alpha = 0.0
+        }) {(_) -> Void in
+//            transView.removeFromSuperview()
+            transitionContext.containerView.backgroundColor = UIColor.clear
+            prensentedView.alpha = 1.0
+            transitionContext.completeTransition(true)
+        }
     }
     
     func animateForDismissdView(using transitionContext: UIViewControllerContextTransitioning){
+        
+        guard let transView = transView ,let startFrame = startFrame else{
+            return
+        }
+        
         //1:取出消失的view
         let dismissView = transitionContext.view(forKey: .from)!
-        
+        dismissView.removeFromSuperview()
+        //2.将prensentedView添加到containView中
+   
+        transitionContext.containerView.addSubview(transView)
+ 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {() -> Void in
-            dismissView .removeFromSuperview()
-            dismissView.alpha = 0.0
-//            imageView.frame = presentedDelegate.startRect(indexPath: indexPath)
+            transView.frame = startFrame
         }) {(_) -> Void in
             transitionContext.completeTransition(true)
         }
-        
-        
-//        guard let dismissDelegate = dismissDelegate,let presentedDelegate = presentedDelegate else{
-//            return
-//        }
-//        
-
-//        dismissView.removeFromSuperview()
-//        //2.将prensentedView添加到containView中
-//        //        transitionContext.containerView.addSubview(dismissView)
-//        
-//        let imageView = dismissDelegate.imageViewForDismiss()
-//        transitionContext.containerView.addSubview(imageView)
-//        let indexPath = dismissDelegate.indexPathForDismiss()
-//        //3,执行动画
-//        
-//        
-
     }
-    
 
+    
+    // MARK:-- 淡入淡出的动画，打开注释，即可使用
+//    func animateForPresentedView(using transitionContext: UIViewControllerContextTransitioning){
+//        //1:取出弹出的view
+//        let prensentedView = transitionContext.view(forKey: .to)!
+//        
+//        //2.将prensentedView添加到containView中
+//        transitionContext.containerView.addSubview(prensentedView)
+//        //3,执行动画
+//        prensentedView.alpha = 0.0
+//        
+//        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {() -> Void in
+//            prensentedView.alpha = 1.0
+//        }) {(_) -> Void in
+//            
+//            transitionContext.completeTransition(true)
+//        }
+//    }
+//    
+//    func animateForDismissdView(using transitionContext: UIViewControllerContextTransitioning){
+//        //1:取出消失的view
+//        let dismissView = transitionContext.view(forKey: .from)!
+//        
+//        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {() -> Void in
+//            dismissView.alpha = 0.0
+//        }) {(_) -> Void in
+//            dismissView .removeFromSuperview()
+//            transitionContext.completeTransition(true)
+//        }
+//    }
+//    
 
 }
+
+
