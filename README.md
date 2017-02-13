@@ -27,7 +27,10 @@
 ### 04_AnimateMoar
 
     自定义的Modar动画
+    
+### 06_SpotlightDemo
 
+    CoreSpotlight的使用    
 
 ### 01_ChangeNext
 
