@@ -14,6 +14,8 @@
 		894481E41E51A4D500C03705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894481E21E51A4D500C03705 /* LaunchScreen.storyboard */; };
 		894481EF1E51A4D500C03705 /* _7_3DTouchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894481EE1E51A4D500C03705 /* _7_3DTouchDemoTests.swift */; };
 		894481FA1E51A4D500C03705 /* _7_3DTouchDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894481F91E51A4D500C03705 /* _7_3DTouchDemoUITests.swift */; };
+		8944820B1E52A4F800C03705 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944820A1E52A4F800C03705 /* DetailViewController.swift */; };
+		8944820D1E52AD3600C03705 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944820C1E52AD3600C03705 /* LikeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		894481F51E51A4D500C03705 /* 07_3DTouchDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 07_3DTouchDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		894481F91E51A4D500C03705 /* _7_3DTouchDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _7_3DTouchDemoUITests.swift; sourceTree = "<group>"; };
 		894481FB1E51A4D500C03705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8944820A1E52A4F800C03705 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8944820C1E52AD3600C03705 /* LikeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				894481D91E51A4D500C03705 /* AppDelegate.swift */,
 				894481DB1E51A4D500C03705 /* ViewController.swift */,
+				8944820A1E52A4F800C03705 /* DetailViewController.swift */,
+				8944820C1E52AD3600C03705 /* LikeViewController.swift */,
 				894481DD1E51A4D500C03705 /* Main.storyboard */,
 				894481E01E51A4D500C03705 /* Assets.xcassets */,
 				894481E21E51A4D500C03705 /* LaunchScreen.storyboard */,
@@ -260,8 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8944820B1E52A4F800C03705 /* DetailViewController.swift in Sources */,
 				894481DC1E51A4D500C03705 /* ViewController.swift in Sources */,
 				894481DA1E51A4D500C03705 /* AppDelegate.swift in Sources */,
+				8944820D1E52AD3600C03705 /* LikeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +424,7 @@
 				DEVELOPMENT_TEAM = 68539G8D3N;
 				INFOPLIST_FILE = 07_3DTouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ftf.marquee.-7-3DTouchDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ftf.3DTouchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -429,7 +437,7 @@
 				DEVELOPMENT_TEAM = 68539G8D3N;
 				INFOPLIST_FILE = 07_3DTouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ftf.marquee.-7-3DTouchDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ftf.3DTouchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

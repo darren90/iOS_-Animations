@@ -16,8 +16,35 @@ class ViewController: UITableViewController {
         if(self.traitCollection.forceTouchCapability == .available){
             //TODO ...
         }
+
+        registerForPreviewing(with: self, sourceView: view)
     }
 
+
+}
+
+
+extension ViewController : UIViewControllerPreviewingDelegate{
+
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+
+        guard let indexPath = tableView.indexPathForRow(at: location) , let cell = tableView.cellForRow(at: indexPath) else {
+            return nil
+        }
+
+        let detailVc = DetailViewController()
+
+        detailVc.preferredContentSize = CGSize(width: 0, height: 0)
+        previewingContext.sourceRect = cell.frame
+        detailVc.mTitle = cell.textLabel?.text
+        return detailVc
+
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
 
 }
 
@@ -39,7 +66,5 @@ extension ViewController{
         cell?.textLabel?.text = "item:\(indexPath.item)"
         return cell!
     }
-
-
 }
 
