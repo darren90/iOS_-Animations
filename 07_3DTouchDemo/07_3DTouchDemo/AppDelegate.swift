@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //动态注册Home Screen Quick Actions
     func registHomeScreenQuickActions(){
+//        UIApplicationShortcutIconType
+//        localizedTitle
+//        localizedSubtitle
+//        UIApplicationShortcutIconType
+//          templateImageName
+//        userInfo
+
         let item1 = UIApplicationShortcutItem(type: "com.ftf.3DTouchDemo.share", localizedTitle: "分享\"3DTouch\"", localizedSubtitle: "subtitle", icon: UIApplicationShortcutIcon(type: .share), userInfo: ["value" : "分享APP"]);
         // UIApplicationShortcutItem 代表一个item
         // type： 唯一标示符的属性
